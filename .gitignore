@@ -1,0 +1,7 @@
+/README.md
+/profile/
+*.exe
+*.o
+*.pdb
+*~
+.DS_Store
