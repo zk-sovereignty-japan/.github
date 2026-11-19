@@ -1,8 +1,7 @@
-README.md
-/README.md
 /profile/
 *.exe
 *.o
 *.pdb
 *~
 .DS_Store
+README_*.md
