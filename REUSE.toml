@@ -2,9 +2,10 @@ version = 1
 
 [[annotations]]
 path = [
-    "*",
+    "**",
     ".gitignore",
-    ".editorconfig"
+    ".editorconfig",
+    "doc/zk_sovereignty_logo.svg"
 ]
 SPDX-FileCopyrightText = "2026 TSUKUMO Akito <tsukumoakito99@duck.com>"
 SPDX-License-Identifier = "MIT"
