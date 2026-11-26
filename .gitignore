@@ -1,7 +1,5 @@
-/profile/
 *.exe
 *.o
 *.pdb
 *~
 .DS_Store
-README_*.md
