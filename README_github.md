@@ -4,7 +4,7 @@ SPDX-License-Identifier: MIT
 -->
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/zk-sovereignty-japan/.github/master/doc/zk_sovereignty_logo.svg" width="140" alt="ZK-Sovereignty Japan Logo" />
+  <img src="https://raw.githubusercontent.com/zk-sovereignty-japan/.github/master/doc/zk_sovereignty_logo.svg" width="220" alt="ZK-Sovereignty Japan Logo" />
 
   <h1>ZK-Sovereignty Japan</h1>
   <p><strong>自己情報主権・個人情報不可侵推進機構</strong></p>
