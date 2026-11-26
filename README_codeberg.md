@@ -25,9 +25,9 @@ SPDX-License-Identifier: MIT
 
 **ZK-Sovereignty Japan** is an independent research and systems engineering organization dedicated to advancing **Zero-Data-Retention digital identity** and **privacy-preserving infrastructure** built strictly on **Privacy by Design (PbD)** and **Data Minimization** principles.
 
-Conventional identity verification and digital service architectures typically require collecting, transmitting, and centrally storing raw personal data—such as copies of government IDs, national identification numbers, and metadata logs. These centralized models create systemic data-breach liabilities, compliance burdens, and disproportionate surveillance exposure.
+Conventional identity architectures—including centralized national ID and certificate-based verification systems—often expose persistent identifiers or linkable cryptographic signatures across contexts. Relying solely on institutional policy, legal safeguards, or operational good intent cannot structurally prevent data breaches, cross-context correlation, **function creep**, or potential **overreach and systemic surveillance** by future operators.
 
-Our mission is to bridge high-assurance **existing public trust anchors** (including **JPKI / My Number Card**, ePassports, and hardware roots of trust) with **modern cryptography and confidential systems engineering**, enabling verifiers to confirm **cryptographic eligibility and authenticity without ever possessing or retaining raw personal information**.
+Our mission is to eliminate these structural vulnerabilities mathematically rather than trusting policy alone. By interposing **Zero-Knowledge Proofs (ZKP)**, **cryptographic unlinkability**, and confidential systems engineering above existing credentials (such as **JPKI / My Number Card**, ePassports, and hardware roots of trust), we enable verification of **eligibility and authenticity without exposing underlying identifiers—ensuring neither verifiers nor issuing authorities can track, profile, or correlate user activity**, while fostering trustworthy, socially acceptable digital infrastructure.
 
 ---
 
@@ -35,7 +35,7 @@ Our mission is to bridge high-assurance **existing public trust anchors** (inclu
 
 | Domain | Focus Areas & Technical Standards |
 | :--- | :--- |
-| **Digital Identity & Verifiable Credentials** | Anonymous credentials over public IDs (JPKI / My Number Card, ePassport, OpenAC / ZK circuits), W3C Verifiable Credentials, Bitstring / OAuth Status Lists, **OpenID4VCI / OpenID4VP**, **SD-JWT**, **BBS+**, **ISO/IEC 18013-5 (mdocs)**, and interoperability alignment with **EUDI Wallet** and Japan's **Digital Agency GIF**. |
+| **Digital Identity & Verifiable Credentials** | Unlinkable anonymous credentials derived from existing public credentials (JPKI / My Number Card, ePassport, OpenAC / ZK circuits) without disclosing persistent IDs, W3C Verifiable Credentials, Bitstring / OAuth Status Lists, **OpenID4VCI / OpenID4VP**, **SD-JWT**, **BBS+**, **ISO/IEC 18013-5 (mdocs)**, and interoperability alignment with **EUDI Wallet** unlinkability requirements and Japan's **Digital Agency GIF**. |
 | **Applied Cryptography (ZKP, MPC, FHE & PQC)** | Zero-knowledge proving systems and zkVMs (Circom, Noir, Halo2, Arkworks, RISC-V zkVMs), threshold signatures & MPC (FROST, CGGMP21, TLSNotary), Fully Homomorphic Encryption & Private Information Retrieval (TFHE, SimplePIR / Piano-PIR, PSI), and **Post-Quantum Cryptography** (ML-KEM, ML-DSA, `liboqs`). |
 | **Hardware RoT, TEE & Privacy Infrastructure** | Silicon Root of Trust (OpenTitan), **TPM 2.0**, Confidential Computing & Remote Attestation (**AMD SEV-SNP**, **Intel TDX**), **Oblivious HTTP / Attested OHTTP (RFC 9458)**, Distributed Aggregation Protocol (DAP / Prio), differential privacy, and **Verifiable Transparency Logs**. |
 | **Low-Overhead Systems Implementation** | Memory-conscious, deterministic, minimal-dependency systems software in **Zig**, **C**, and **Linux**; hardened authentication/passkey tooling; and reproducible, zero-trust repository and secret management architectures. |
@@ -44,9 +44,9 @@ Our mission is to bridge high-assurance **existing public trust anchors** (inclu
 
 ## 🔐 Design Principles & Governance
 
-- **Zero-Data-Retention Verification:** Verifiers receive mathematical proof of required attributes (e.g., age threshold, residency, credential validity) rather than raw PII.
-- **Cryptographic Verifiability over Blind Trust:** Specifications, circuits, and system components are engineered for open auditability, deterministic builds, and independent verification.
-- **Interoperability with Institutional Frameworks:** Protocols are designed to harmonize with international standards (W3C, IETF, OpenID Foundation, ISO/IEC) and domestic public digital infrastructure frameworks.
+- **Zero-Data-Retention & Cryptographic Unlinkability:** Verifiers receive mathematical proof of required attributes (e.g., age threshold, residency, credential validity) with neither raw PII exposure nor cross-context correlation by verifiers or issuers.
+- **Mathematical Guarantees over Policy-Only Trust:** Specifications, circuits, and system components are engineered so that privacy and non-traceability are enforced by cryptography, open auditability, and deterministic builds rather than operational discretion alone.
+- **Constructive Alignment with Institutional Frameworks:** Protocols are designed to bridge public-interest concerns with international standards (W3C, IETF, OpenID Foundation, ISO/IEC, eIDAS 2.0) and domestic digital infrastructure frameworks, enabling privacy-preserving social adoption.
 - **Supply Chain Integrity:** All repositories enforce **REUSE 3.3** licensing compliance, cryptographic commit/release signing, and isolated vault-based credential governance.
 
 ---
@@ -57,15 +57,15 @@ Our mission is to bridge high-assurance **existing public trust anchors** (inclu
 
 **自己情報主権・個人情報不可侵推進機構（ZK-Sovereignty Japan）** は、**プライバシー・バイ・デザイン（PbD）** および **データ最小化原則** に基づき、**個人情報非保持型（Zero-Data-Retention）の本人確認・資格証明プロトコル** と **プライバシー保護暗号基盤** を研究開発する独立技術開発機構です。
 
-従来のオンライン本人確認やデジタル基盤の多くは、身分証画像・個人識別番号・利用履歴などの「生データ」をサービス提供者や仲介事業者が収集・蓄積することを前提としてきました。その結果、管理ミスやサイバー攻撃による大規模情報漏洩リスク、事業者の過大な管理負荷、そして過剰な通信追跡・監視リスクが構造的な課題となっています。
+従来のオンライン本人確認や、番号・固定識別子を中核とする中央集権的な認証基盤は、身分証画像や個人識別子・検証証跡を通じた文脈横断的な名寄せ（連結可能性）を許容する構造を抱えています。たとえ法令や運用規律による制限を設けていたとしても、**制度上の善意や運用管理のみに依存する設計では、大規模情報漏洩リスクに加え、将来的な目的外利用の拡大（Function Creep）、プロファイリング、あるいは運用主体の権限逸脱に伴う過剰な監視リスクを技術的・構造的に排除することはできません**。
 
-当機構は、**公的個人認証サービス（JPKI / マイナンバーカード）** や IC パスポート、ハードウェア Root of Trust といった既存の公的・物理的トラストアンカーの信頼性を損なうことなく、**ゼロ知識証明（ZKP）** と **自己主権型アイデンティティ（SSI）** を組み合わせることで、**「個人情報を一切預からず・保持せずに、適合性と正当性のみを暗号学的に検証できる」** 次世代の社会的デジタルインフラの確立を目指しています。
+当機構は、こうした構造的課題を「規則への信頼」にとどめず**「数学的に追跡・収集が不可能であるという暗号学的保証」**によって解決することを目指しています。**公的個人認証サービス（JPKI / マイナンバーカード）** や電子旅券等の既存基盤をそのまま追跡可能な識別子として流通させるのではなく、**ゼロ知識証明（ZKP）** と **暗号学的非連結性（Unlinkability）** からなる保護レイヤを介在させることで、**「発行機関やシステム運用者を含め、誰からも利用履歴を紐付け・追跡されることなく、必要な資格要件の適合性のみを検証できる」** 仕組みを構築し、個人の情報不可侵に対する懸念の払拭と、公的・国際的枠組みとも調和し得る健全な社会実装の両立を追求します。
 
 ### 主要な研究開発領域
 
 - **デジタルアイデンティティ・検証可能資格証明（VC）**
-  - マイナンバーカード（JPKI）および電子旅券等を起点としたプライバシー保護型匿名資格証明（ZKP / OpenAC）
-  - **OpenID4VCI / OpenID4VP**、**SD-JWT**、**BBS+**、**ISO/IEC 18013-5 (mdoc)**、**W3C Bitstring Status List** 等の国際標準、ならびに **EUDI Wallet** や日本国デジタル庁 **政府相互運用性フレームワーク（GIF）** との相互運用性を志向した設計・検証
+  - マイナンバーカード（JPKI）や電子旅券等の公的資格基盤から個人識別子を切り離し、**発行元・検証者の双方から追跡不能（非連結）な形へ変換する**プライバシー保護型匿名資格証明（ZKP / OpenAC）
+  - **OpenID4VCI / OpenID4VP**、**SD-JWT**、**BBS+**、**ISO/IEC 18013-5 (mdoc)**、**W3C Bitstring Status List** 等の国際標準、ならびに **EUDI Wallet**（非連結性要件）や日本国デジタル庁 **政府相互運用性フレームワーク（GIF）** との相互運用性を志向した設計・検証
 - **応用暗号技術（ZKP / MPC / FHE / PIR / ポスト量子暗号）**
   - ゼロ知識証明回路・zkVM（Noir, Circom, Halo2, Arkworks, RISC-V zkVM）の実装および安全性検証
   - 閾値署名・マルチパーティ計算（FROST, CGGMP21, TLSNotary）、完全準同型暗号（TFHE）、秘匿情報検索（PIR / PSI）、および耐量子計算機暗号（ML-KEM, ML-DSA 等）の実用化研究
